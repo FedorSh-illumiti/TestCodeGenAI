@@ -1,0 +1,30 @@
+# Task ID: 5
+# Title: Implement Master Data Services and Integration
+# Status: pending
+# Dependencies: 2
+# Priority: medium
+# Description: Create services for master data entities (Airlines, Passengers, TravelAgencies, etc.) and integrate them with the Travel service.
+# Details:
+1. Create srv/master-data-service.cds for master data entities
+2. Expose read-only endpoints for:
+   - Airlines
+   - Passengers
+   - TravelAgencies
+   - Supplements
+   - Flights
+   - Airports
+3. Implement value help annotations for UI integration
+4. Create sample data for all master entities
+5. Implement validation rules using master data (e.g., valid airport codes)
+6. Add reference integrity checks between Travel entities and master data
+7. Implement caching for frequently accessed master data
+8. Configure proper sorting and filtering for value help dialogs
+
+# Test Strategy:
+1. Verify all master data entities are accessible
+2. Test value help functionality
+3. Validate reference integrity with main entities
+4. Test filtering and sorting capabilities
+5. Verify sample data is correctly loaded
+6. Test performance with larger datasets
+7. Validate UI annotations for value helps

@@ -1,0 +1,36 @@
+# Task ID: 8
+# Title: Implement Role-Based Authorization and Workflow
+# Status: pending
+# Dependencies: 3, 4
+# Priority: high
+# Description: Configure the four-tier authorization model and implement approval workflows with status management.
+# Details:
+1. Define role model in xs-security.json:
+   - authenticated-user: read-only access
+   - reviewer: approval capabilities
+   - processor: full operational access
+   - admin: system configuration access
+2. Implement role checks in service handlers:
+   - READ restrictions based on roles
+   - UPDATE/DELETE restrictions for processors/admins
+   - Approval actions for reviewers
+3. Configure status transitions with role validation:
+   - Open → Accepted (requires reviewer role)
+   - Accepted → Canceled (requires processor role)
+4. Implement discount authorization workflow:
+   - Add discount fields to Travel entity
+   - Create approval process for discounts above threshold
+   - Implement notification mechanism for pending approvals
+5. Add audit trail through managed entity annotations
+6. Configure secure handling of passenger information
+7. Implement mock authentication for development
+8. Prepare for XSUAA integration in production
+
+# Test Strategy:
+1. Test access control with different user roles
+2. Verify status transitions with authorized/unauthorized users
+3. Test approval workflow for discounts
+4. Validate audit trail captures all changes
+5. Test secure handling of passenger information
+6. Verify authentication works in development mode
+7. Test role-specific UI elements visibility

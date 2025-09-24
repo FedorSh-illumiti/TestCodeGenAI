@@ -1,0 +1,30 @@
+# Task ID: 2
+# Title: Define Core Data Models and Database Schema
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Create the data models for Travel, Booking, BookingSupplement entities and master data with proper relationships and annotations.
+# Details:
+1. Create db/schema.cds file with the following entities:
+   - Travel (root entity with UUID/sequential ID)
+   - Booking (child entity with flight associations)
+   - BookingSupplement (grandchild entity)
+   - Master Data: Airlines, Passengers, TravelAgencies, Supplements, Flights, Airports
+2. Define compositions between entities:
+   - Travel to Booking (1:n)
+   - Booking to BookingSupplement (1:n)
+3. Add required fields for each entity:
+   - Travel: ID, agencyID, customerID, beginDate, endDate, bookingFee, totalPrice, currencyCode, description, status, etc.
+   - Booking: ID, travelID, flightDate, flightPrice, connectionID, etc.
+   - BookingSupplement: ID, bookingID, supplementID, price, etc.
+4. Add annotations for UI rendering and validation
+5. Configure SQLite for development database
+6. Create sample data in .csv files for initial deployment
+7. Implement managed aspects for audit fields (createdAt, createdBy, etc.)
+
+# Test Strategy:
+1. Validate schema using `cds compile db/schema.cds`
+2. Deploy schema to SQLite using `cds deploy`
+3. Verify entity relationships through CDS model inspection
+4. Test data loading with sample CSV files
+5. Validate field constraints and types

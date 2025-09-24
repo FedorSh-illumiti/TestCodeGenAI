@@ -1,0 +1,30 @@
+# Task ID: 9
+# Title: Implement Green Travel Initiative Features
+# Status: pending
+# Dependencies: 4, 7
+# Priority: low
+# Description: Develop the GoGreen flag functionality and TreesPlanted counter with environmental fee calculations.
+# Details:
+1. Extend Travel entity with GoGreen flag and environmental metrics
+2. Add TreesPlanted counter to Travel entity
+3. Implement environmental fee calculation logic:
+   - Calculate based on travel distance and transportation type
+   - Apply different rates for different booking types
+   - Update total price to include environmental fees
+4. Create UI controls for GoGreen option selection
+5. Implement visual indicators for eco-friendly travel options
+6. Add analytics for environmental impact:
+   - Total trees planted
+   - CO2 offset calculations
+   - Environmental impact by travel agency
+7. Create reporting views for green travel initiatives
+8. Implement gamification elements for environmental contributions
+
+# Test Strategy:
+1. Test GoGreen flag functionality
+2. Verify environmental fee calculations
+3. Test TreesPlanted counter increments correctly
+4. Validate UI controls for eco-friendly options
+5. Test analytics for environmental metrics
+6. Verify total price includes environmental fees
+7. Test reporting views for green travel data

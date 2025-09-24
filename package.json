@@ -1,0 +1,52 @@
+{
+  "name": "sflight",
+  "version": "1.0.0",
+  "description": "SAP CAP SFLIGHT Travel Management System - A comprehensive travel booking demo application showcasing enterprise-grade travel management capabilities.",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/hana-client": "^2",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
+    "@types/jest": "^29",
+    "@types/node": "^22",
+    "chai": "^4",
+    "chai-as-promised": "^7",
+    "chai-subset": "^1",
+    "jest": "^29",
+    "supertest": "^7",
+    "ts-jest": "^29",
+    "tsx": "^4.20.5",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "dev": "cds watch",
+    "build": "cds build",
+    "build:ui": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "compile": "tsc",
+    "lint": "eslint . --ext .js,.ts,.json",
+    "deploy": "cds deploy"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db.sqlite"
+          }
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      }
+    }
+  }
+}

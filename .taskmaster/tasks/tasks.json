@@ -1,0 +1,145 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Development Environment and Project Structure",
+        "description": "Initialize the CAP project structure with Node.js and configure the development environment with required dependencies and tools.",
+        "details": "1. Install Node.js ≥20 and npm/yarn\n2. Install SAP CAP CLI using `npm i -g @sap/cds-dk`\n3. Initialize a new CAP project: `cds init sflight --add hana,mta`\n4. Configure package.json with required dependencies:\n   - @sap/cds: latest version\n   - express: latest version\n   - @sap/hana-client: for HANA connectivity\n   - typescript: for type-safe development\n5. Setup TypeScript configuration (tsconfig.json)\n6. Configure Jest for testing with 20-second timeout\n7. Create development scripts in package.json:\n   - `cds watch` for local development\n   - `npm run build:ui` for frontend builds\n   - `npm test` for testing\n8. Initialize Git repository with appropriate .gitignore",
+        "testStrategy": "1. Verify all development commands work correctly\n2. Ensure project structure follows CAP best practices\n3. Validate TypeScript compilation works\n4. Test that cds watch starts successfully\n5. Verify Jest test runner executes properly",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Define Core Data Models and Database Schema",
+        "description": "Create the data models for Travel, Booking, BookingSupplement entities and master data with proper relationships and annotations.",
+        "details": "1. Create db/schema.cds file with the following entities:\n   - Travel (root entity with UUID/sequential ID)\n   - Booking (child entity with flight associations)\n   - BookingSupplement (grandchild entity)\n   - Master Data: Airlines, Passengers, TravelAgencies, Supplements, Flights, Airports\n2. Define compositions between entities:\n   - Travel to Booking (1:n)\n   - Booking to BookingSupplement (1:n)\n3. Add required fields for each entity:\n   - Travel: ID, agencyID, customerID, beginDate, endDate, bookingFee, totalPrice, currencyCode, description, status, etc.\n   - Booking: ID, travelID, flightDate, flightPrice, connectionID, etc.\n   - BookingSupplement: ID, bookingID, supplementID, price, etc.\n4. Add annotations for UI rendering and validation\n5. Configure SQLite for development database\n6. Create sample data in .csv files for initial deployment\n7. Implement managed aspects for audit fields (createdAt, createdBy, etc.)",
+        "testStrategy": "1. Validate schema using `cds compile db/schema.cds`\n2. Deploy schema to SQLite using `cds deploy`\n3. Verify entity relationships through CDS model inspection\n4. Test data loading with sample CSV files\n5. Validate field constraints and types",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Implement Core Travel Service with CRUD Operations",
+        "description": "Create the TravelService with basic CRUD operations for the Travel entity and configure OData exposure.",
+        "details": "1. Create srv/travel-service.cds file defining the TravelService\n2. Expose Travel entity with CRUD operations\n3. Implement service handlers in srv/travel-service.js:\n   - READ operations for Travel entities\n   - CREATE with validation logic\n   - UPDATE with status transition checks\n   - DELETE with appropriate validations\n4. Configure OData V4 protocol\n5. Implement draft handling for Travel entities\n6. Add basic validation rules (dates, required fields)\n7. Configure service for processor path (/processor)\n8. Implement basic error handling\n9. Add service annotations for Fiori Elements UI generation\n10. Configure mock authentication for development",
+        "testStrategy": "1. Test CRUD operations using cds test framework\n2. Validate OData service metadata\n3. Test entity creation with valid and invalid data\n4. Verify read operations return expected results\n5. Test update operations with status transitions\n6. Validate delete operations with constraints\n7. Test draft functionality for in-progress edits",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Extend Service with Booking and Supplement Entities",
+        "description": "Extend the TravelService to include Booking and BookingSupplement entities with proper composition relationships and business logic.",
+        "details": "1. Update srv/travel-service.cds to expose Booking and BookingSupplement entities\n2. Implement handlers for Booking operations in travel-service.js:\n   - CREATE with validation and association to Travel\n   - READ with expansion to flight data\n   - UPDATE with price recalculation\n   - DELETE with cascade handling\n3. Implement BookingSupplement handlers:\n   - CREATE with validation and price calculation\n   - READ with supplement details\n   - UPDATE with price impact on parent entities\n   - DELETE with price recalculation\n4. Implement automatic price calculation logic:\n   - Update Travel.totalPrice when Bookings change\n   - Update Booking.price when BookingSupplements change\n5. Add validation for booking dates within travel dates\n6. Configure deep insert/update operations\n7. Implement proper error handling for nested operations",
+        "testStrategy": "1. Test creation of Bookings within a Travel\n2. Test creation of BookingSupplements within a Booking\n3. Verify price calculations propagate correctly\n4. Test validation rules for dates and relationships\n5. Test deep read operations with expansions\n6. Verify cascade delete behavior\n7. Test error scenarios with invalid data",
+        "priority": "medium",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Implement Master Data Services and Integration",
+        "description": "Create services for master data entities (Airlines, Passengers, TravelAgencies, etc.) and integrate them with the Travel service.",
+        "details": "1. Create srv/master-data-service.cds for master data entities\n2. Expose read-only endpoints for:\n   - Airlines\n   - Passengers\n   - TravelAgencies\n   - Supplements\n   - Flights\n   - Airports\n3. Implement value help annotations for UI integration\n4. Create sample data for all master entities\n5. Implement validation rules using master data (e.g., valid airport codes)\n6. Add reference integrity checks between Travel entities and master data\n7. Implement caching for frequently accessed master data\n8. Configure proper sorting and filtering for value help dialogs",
+        "testStrategy": "1. Verify all master data entities are accessible\n2. Test value help functionality\n3. Validate reference integrity with main entities\n4. Test filtering and sorting capabilities\n5. Verify sample data is correctly loaded\n6. Test performance with larger datasets\n7. Validate UI annotations for value helps",
+        "priority": "medium",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Develop Travel Processor Frontend Application",
+        "description": "Create the transactional Fiori Elements application for travel processing with list and detail views.",
+        "details": "1. Generate UI application using Fiori Elements templates:\n   - List Report / Object Page pattern\n   - Configure for /processor service path\n2. Customize UI annotations in srv/travel-service.cds:\n   - Configure columns for list view\n   - Organize fields in detail view\n   - Add filter fields and search configuration\n3. Implement custom sections for Bookings and BookingSupplements\n4. Configure actions for status transitions (Open → Accepted → Canceled)\n5. Add validation messages display\n6. Implement responsive design for different devices\n7. Configure draft handling UI\n8. Add variant management for saved searches\n9. Configure navigation between Travel, Booking, and Supplement entities\n10. Set up SAP UI5 version 1.139.0 as specified",
+        "testStrategy": "1. Test UI rendering in different browsers\n2. Verify all CRUD operations work through the UI\n3. Test responsive behavior on different screen sizes\n4. Validate status transition actions\n5. Test navigation between related entities\n6. Verify draft handling works correctly\n7. Test variant management for saved searches\n8. Validate field validation and error messages",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Implement Analytics Service and Dashboard",
+        "description": "Create the AnalyticsService for reporting and develop the Travel Analytics frontend application with KPIs and visualizations.",
+        "details": "1. Create srv/analytics-service.cds for the analytics service\n2. Define analytical views for travel data:\n   - Travel statistics by agency\n   - Booking distribution by airline\n   - Price analysis by destination\n   - Green travel metrics\n3. Configure service for /analytics path\n4. Implement aggregation queries and calculations\n5. Create Fiori Elements Analytical List Page application:\n   - Configure visual filters\n   - Add KPI cards for key metrics\n   - Implement chart visualizations\n   - Configure drill-down capabilities\n6. Add export functionality for reports\n7. Implement filter variants for different analysis scenarios\n8. Configure cross-navigation to Travel Processor app\n9. Add TreesPlanted counter and GoGreen metrics visualization",
+        "testStrategy": "1. Test analytical queries for performance and accuracy\n2. Verify KPI calculations match expected results\n3. Test visual filters functionality\n4. Validate export capabilities\n5. Test cross-navigation between apps\n6. Verify drill-down behavior works correctly\n7. Test with larger datasets for performance\n8. Validate filter variants save and load correctly",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Implement Role-Based Authorization and Workflow",
+        "description": "Configure the four-tier authorization model and implement approval workflows with status management.",
+        "details": "1. Define role model in xs-security.json:\n   - authenticated-user: read-only access\n   - reviewer: approval capabilities\n   - processor: full operational access\n   - admin: system configuration access\n2. Implement role checks in service handlers:\n   - READ restrictions based on roles\n   - UPDATE/DELETE restrictions for processors/admins\n   - Approval actions for reviewers\n3. Configure status transitions with role validation:\n   - Open → Accepted (requires reviewer role)\n   - Accepted → Canceled (requires processor role)\n4. Implement discount authorization workflow:\n   - Add discount fields to Travel entity\n   - Create approval process for discounts above threshold\n   - Implement notification mechanism for pending approvals\n5. Add audit trail through managed entity annotations\n6. Configure secure handling of passenger information\n7. Implement mock authentication for development\n8. Prepare for XSUAA integration in production",
+        "testStrategy": "1. Test access control with different user roles\n2. Verify status transitions with authorized/unauthorized users\n3. Test approval workflow for discounts\n4. Validate audit trail captures all changes\n5. Test secure handling of passenger information\n6. Verify authentication works in development mode\n7. Test role-specific UI elements visibility",
+        "priority": "high",
+        "dependencies": [
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Implement Green Travel Initiative Features",
+        "description": "Develop the GoGreen flag functionality and TreesPlanted counter with environmental fee calculations.",
+        "details": "1. Extend Travel entity with GoGreen flag and environmental metrics\n2. Add TreesPlanted counter to Travel entity\n3. Implement environmental fee calculation logic:\n   - Calculate based on travel distance and transportation type\n   - Apply different rates for different booking types\n   - Update total price to include environmental fees\n4. Create UI controls for GoGreen option selection\n5. Implement visual indicators for eco-friendly travel options\n6. Add analytics for environmental impact:\n   - Total trees planted\n   - CO2 offset calculations\n   - Environmental impact by travel agency\n7. Create reporting views for green travel initiatives\n8. Implement gamification elements for environmental contributions",
+        "testStrategy": "1. Test GoGreen flag functionality\n2. Verify environmental fee calculations\n3. Test TreesPlanted counter increments correctly\n4. Validate UI controls for eco-friendly options\n5. Test analytics for environmental metrics\n6. Verify total price includes environmental fees\n7. Test reporting views for green travel data",
+        "priority": "low",
+        "dependencies": [
+          4,
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Configure Production Deployment and HANA Migration",
+        "description": "Prepare the application for production deployment on SAP BTP Cloud Foundry with HANA Cloud database and XSUAA authentication.",
+        "details": "1. Create mta.yaml for Multi-Target Application deployment:\n   - Define modules for backend services\n   - Configure UI applications\n   - Set up service bindings\n2. Configure HANA Cloud database connection:\n   - Update cds configuration for HANA\n   - Create deployment artifacts for HANA\n   - Plan data migration strategy\n3. Implement XSUAA authentication:\n   - Configure xs-security.json\n   - Set up role collections\n   - Implement JWT token handling\n4. Create deployment automation scripts\n5. Implement performance optimizations:\n   - Add caching for master data\n   - Optimize OData queries\n   - Configure HANA-specific features\n6. Set up multi-language support (EN, DE, FR):\n   - Create i18n files\n   - Implement language switching\n7. Configure logging and monitoring\n8. Create comprehensive deployment documentation",
+        "testStrategy": "1. Test deployment to SAP BTP test environment\n2. Verify HANA Cloud connection works correctly\n3. Test XSUAA authentication with different roles\n4. Validate performance with production-like data volumes\n5. Test multi-language support\n6. Verify logging and monitoring\n7. Perform end-to-end testing in production-like environment\n8. Validate deployment automation scripts",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-09-24T16:01:55.308Z",
+      "updated": "2025-09-24T17:02:47.180Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

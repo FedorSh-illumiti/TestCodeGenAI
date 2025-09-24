@@ -1,0 +1,30 @@
+# Task ID: 3
+# Title: Implement Core Travel Service with CRUD Operations
+# Status: pending
+# Dependencies: 2
+# Priority: high
+# Description: Create the TravelService with basic CRUD operations for the Travel entity and configure OData exposure.
+# Details:
+1. Create srv/travel-service.cds file defining the TravelService
+2. Expose Travel entity with CRUD operations
+3. Implement service handlers in srv/travel-service.js:
+   - READ operations for Travel entities
+   - CREATE with validation logic
+   - UPDATE with status transition checks
+   - DELETE with appropriate validations
+4. Configure OData V4 protocol
+5. Implement draft handling for Travel entities
+6. Add basic validation rules (dates, required fields)
+7. Configure service for processor path (/processor)
+8. Implement basic error handling
+9. Add service annotations for Fiori Elements UI generation
+10. Configure mock authentication for development
+
+# Test Strategy:
+1. Test CRUD operations using cds test framework
+2. Validate OData service metadata
+3. Test entity creation with valid and invalid data
+4. Verify read operations return expected results
+5. Test update operations with status transitions
+6. Validate delete operations with constraints
+7. Test draft functionality for in-progress edits

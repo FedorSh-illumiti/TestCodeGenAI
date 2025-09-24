@@ -1,0 +1,29 @@
+# Task ID: 1
+# Title: Setup Development Environment and Project Structure
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Initialize the CAP project structure with Node.js and configure the development environment with required dependencies and tools.
+# Details:
+1. Install Node.js ≥20 and npm/yarn
+2. Install SAP CAP CLI using `npm i -g @sap/cds-dk`
+3. Initialize a new CAP project: `cds init sflight --add hana,mta`
+4. Configure package.json with required dependencies:
+   - @sap/cds: latest version
+   - express: latest version
+   - @sap/hana-client: for HANA connectivity
+   - typescript: for type-safe development
+5. Setup TypeScript configuration (tsconfig.json)
+6. Configure Jest for testing with 20-second timeout
+7. Create development scripts in package.json:
+   - `cds watch` for local development
+   - `npm run build:ui` for frontend builds
+   - `npm test` for testing
+8. Initialize Git repository with appropriate .gitignore
+
+# Test Strategy:
+1. Verify all development commands work correctly
+2. Ensure project structure follows CAP best practices
+3. Validate TypeScript compilation works
+4. Test that cds watch starts successfully
+5. Verify Jest test runner executes properly

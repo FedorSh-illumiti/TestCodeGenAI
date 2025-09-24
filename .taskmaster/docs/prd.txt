@@ -1,0 +1,168 @@
+<context>
+# Overview
+CAP SFLIGHT is a comprehensive travel booking demo application built using SAP Cloud Application Programming Model (CAP) and SAP Fiori Elements. It serves as a reference implementation showcasing enterprise-grade travel management capabilities with multi-stack support (Node.js/Java backends) and dual frontend applications for operational and analytical use cases. The system enables travel agencies and corporate travel departments to manage bookings, analyze travel patterns, and provide customers with a complete travel management solution.
+
+# Core Features
+**Travel Management System**
+- Full CRUD operations for travel records with hierarchical data structure (Travel → Booking → BookingSupplement)
+- Role-based workflow management with status transitions (Open → Accepted → Canceled)
+- Automatic price calculations across all booking components with multi-currency support
+- Important for providing complete travel lifecycle management from booking to completion
+
+**Green Travel Initiative**
+- GoGreen flag for eco-friendly travel options with calculated environmental fees
+- TreesPlanted counter for environmental impact tracking
+- Promotes sustainable travel practices and corporate environmental responsibility
+
+**Dual Application Architecture**
+- Travel Processor App: Transactional interface for travel agents and processors
+- Travel Analytics App: Analytical dashboard for reporting and business intelligence
+- Provides role-specific interfaces optimizing user experience for different personas
+
+**Multi-Stack Backend Support**
+- Primary Node.js/TypeScript implementation with SAP CAP framework
+- Alternative Java/Spring Boot implementation for enterprise environments
+- Flexible deployment options supporting different organizational preferences
+
+# User Experience
+**User Personas:**
+- Travel Processors: Full operational access for managing travel bookings and customer requests
+- Reviewers: Approval workflow access for travel request validation and discount authorization
+- Authenticated Users: Read-only access for viewing travel information
+- Administrators: Full system access for configuration and user management
+
+**Key User Flows:**
+- Travel Creation: Template-based travel creation → booking addition → supplement configuration → approval workflow
+- Analytics Review: Dashboard access → filter application → drill-down analysis → data export
+- Approval Workflow: Review pending travels → apply discounts → approve/reject with audit trail
+
+**UI/UX Considerations:**
+- Responsive design supporting desktop, tablet, and mobile devices
+- SAP Fiori Elements providing consistent enterprise UX patterns
+- Multi-language support (EN, DE, FR) for international deployment
+- Personalization with variant management and saved search options
+</context>
+
+<PRD>
+# Technical Architecture
+**System Components:**
+- Backend Services: TravelService (/processor) for CRUD operations, AnalyticsService (/analytics) for reporting
+- Frontend Applications: Travel Processor (transactional), Travel Analytics (analytical)
+- Database Layer: SQLite for development, SAP HANA Cloud for production
+- Authentication: Mock auth for development, XSUAA for production on SAP BTP
+
+**Data Models:**
+- Travel (root entity with UUID/sequential ID, composition to Bookings)
+- Booking (child entity with flight associations, composition to BookingSupplements)
+- BookingSupplement (grandchild entity for additional services)
+- Master Data: Airlines, Passengers, TravelAgencies, Supplements, Flights, Airports
+
+**APIs and Integrations:**
+- OData 4.0 services for frontend consumption
+- REST API endpoints for external integration
+- SAP BTP Cloud Foundry deployment with HANA Cloud database
+- Cross-navigation support between applications
+
+**Infrastructure Requirements:**
+- Node.js ≥20 with npm/yarn package management
+- SAP CAP CLI (@sap/cds-dk) for development tooling
+- SAP BTP Cloud Foundry space for production deployment
+- SAP HANA Cloud database instance for production data persistence
+
+# Development Roadmap
+**MVP Phase 1 - Core Travel Management:**
+- Basic Travel entity with CRUD operations
+- SQLite database setup and initial schema
+- Simple booking creation and management
+- Basic authentication and authorization framework
+- Single frontend application for travel processing
+
+**Phase 2 - Enhanced Booking System:**
+- Complete Booking and BookingSupplement hierarchy
+- Master data entities (Airlines, Passengers, Agencies)
+- Price calculation engine with multi-currency support
+- Flight connection and airport data integration
+- Enhanced UI with responsive design
+
+**Phase 3 - Workflow and Analytics:**
+- Status management and approval workflows
+- Role-based access control implementation
+- Analytics service with reporting capabilities
+- Travel Analytics frontend application
+- Green travel initiative features
+
+**Phase 4 - Production Readiness:**
+- SAP HANA Cloud database migration
+- XSUAA authentication integration
+- Performance optimizations and caching
+- Multi-language support implementation
+- Comprehensive testing suite
+
+**Phase 5 - Enterprise Features:**
+- Advanced analytics with KPIs and visual filters
+- Cross-application navigation
+- Audit trail and compliance features
+- Mobile optimization and offline capabilities
+- Integration APIs for external systems
+
+# Logical Dependency Chain
+**Foundation (Must Build First):**
+- Database schema and entity definitions
+- Basic CAP service framework setup
+- Core Travel entity with basic CRUD operations
+- SQLite database deployment and sample data
+
+**Early Visible Frontend:**
+- Simple Travel list/detail UI using Fiori Elements
+- Basic create/read/update operations
+- Development authentication setup
+- Local development server configuration
+
+**Incremental Feature Building:**
+- Booking entity addition with composition relationships
+- Master data integration (Airlines, Passengers)
+- Price calculation logic implementation
+- Status management and workflow transitions
+- BookingSupplement entity for service additions
+
+**Advanced Capabilities:**
+- Analytics service and reporting frontend
+- Role-based authorization and workflow approvals
+- Production database and authentication migration
+- Performance optimization and enterprise features
+
+# Risks and Mitigations
+**Technical Challenges:**
+- SAP CAP framework learning curve → Provide comprehensive documentation and training materials
+- OData service complexity → Start with simple entity operations before advanced features
+- Multi-stack support maintenance → Focus on Node.js implementation first, Java as secondary
+
+**MVP Scope Management:**
+- Feature scope creep → Clearly define Phase 1 deliverables and stick to core functionality
+- Complex data model → Implement hierarchical composition incrementally
+- Performance concerns → Use SQLite for development, plan HANA migration early
+
+**Resource Constraints:**
+- Development environment setup → Provide automated setup scripts and clear prerequisites
+- SAP BTP deployment complexity → Create detailed deployment guides and automation
+- Testing strategy → Implement unit tests early, add integration tests progressively
+
+# Appendix
+**Technical Specifications:**
+- SAP UI5 version 1.139.0 for frontend framework
+- TypeScript for type-safe backend development
+- Jest testing framework with 20-second timeout configuration
+- MTA (Multi-Target Application) deployment descriptors for SAP BTP
+
+**Development Commands:**
+- `cds watch` for local development server
+- `npm run build:ui` for frontend application builds
+- `npm test` for comprehensive test execution
+- `cds deploy` for database schema deployment
+
+**Security Model:**
+- Four-tier authorization: authenticated-user, reviewer, processor, admin
+- Draft-enabled operations for data consistency
+- Audit trail through managed entity annotations
+- No PII logging and secure passenger information handling
+</PRD>

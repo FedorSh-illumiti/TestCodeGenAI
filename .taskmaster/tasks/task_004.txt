@@ -1,0 +1,33 @@
+# Task ID: 4
+# Title: Extend Service with Booking and Supplement Entities
+# Status: pending
+# Dependencies: 3
+# Priority: medium
+# Description: Extend the TravelService to include Booking and BookingSupplement entities with proper composition relationships and business logic.
+# Details:
+1. Update srv/travel-service.cds to expose Booking and BookingSupplement entities
+2. Implement handlers for Booking operations in travel-service.js:
+   - CREATE with validation and association to Travel
+   - READ with expansion to flight data
+   - UPDATE with price recalculation
+   - DELETE with cascade handling
+3. Implement BookingSupplement handlers:
+   - CREATE with validation and price calculation
+   - READ with supplement details
+   - UPDATE with price impact on parent entities
+   - DELETE with price recalculation
+4. Implement automatic price calculation logic:
+   - Update Travel.totalPrice when Bookings change
+   - Update Booking.price when BookingSupplements change
+5. Add validation for booking dates within travel dates
+6. Configure deep insert/update operations
+7. Implement proper error handling for nested operations
+
+# Test Strategy:
+1. Test creation of Bookings within a Travel
+2. Test creation of BookingSupplements within a Booking
+3. Verify price calculations propagate correctly
+4. Test validation rules for dates and relationships
+5. Test deep read operations with expansions
+6. Verify cascade delete behavior
+7. Test error scenarios with invalid data
