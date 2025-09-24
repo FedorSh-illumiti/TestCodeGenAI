@@ -22,7 +22,7 @@
         "dependencies": [
           1
         ],
-        "status": "pending",
+        "status": "in-progress",
         "subtasks": [
           {
             "id": 1,
@@ -30,7 +30,7 @@
             "description": "Create the core Travel, Booking, and BookingSupplement entities with their fields and basic relationships in the db/schema.cds file.",
             "dependencies": [],
             "details": "1. Create db/schema.cds file with proper namespace\n2. Define Travel entity with fields: ID, agencyID, customerID, beginDate, endDate, bookingFee, totalPrice, currencyCode, description, status\n3. Define Booking entity with fields: ID, travelID, flightDate, flightPrice, connectionID\n4. Define BookingSupplement entity with fields: ID, bookingID, supplementID, price\n5. Implement basic type definitions and field constraints",
-            "status": "pending",
+            "status": "done",
             "testStrategy": ""
           },
           {
@@ -193,7 +193,7 @@
     ],
     "metadata": {
       "created": "2025-09-24T16:01:55.308Z",
-      "updated": "2025-09-24T17:02:47.180Z",
+      "updated": "2025-09-24T17:19:34.305Z",
       "description": "Tasks for master context"
     }
   }
