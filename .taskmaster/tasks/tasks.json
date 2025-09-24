@@ -51,7 +51,7 @@
               "2.2"
             ],
             "details": "1. Define composition between Travel and Booking (1:n)\n2. Define composition between Booking and BookingSupplement (1:n)\n3. Create associations between Booking and Flights\n4. Create associations between Travel and TravelAgencies\n5. Create associations between Travel and Passengers\n6. Create associations between BookingSupplement and Supplements\n7. Configure proper cardinality for all relationships",
-            "status": "pending",
+            "status": "done",
             "testStrategy": ""
           },
           {
@@ -193,7 +193,7 @@
     ],
     "metadata": {
       "created": "2025-09-24T16:01:55.308Z",
-      "updated": "2025-09-24T18:00:12.240Z",
+      "updated": "2025-09-24T18:11:15.819Z",
       "description": "Tasks for master context"
     }
   }

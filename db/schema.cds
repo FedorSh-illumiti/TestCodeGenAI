@@ -86,6 +86,10 @@ entity Travel : cuid, managed {
   Description   : String(1024);
   Status        : String(1) @mandatory @assert.range: ['O', 'P', 'A', 'X'];
 
+  // Associations to Master Data
+  TravelAgency : Association to TravelAgencies on TravelAgency.AgencyID = AgencyID;
+  Customer     : Association to Passengers on Customer.CustomerID = CustomerID;
+
   // Composition to Booking
   Booking   : Composition of many Booking on Booking.Travel = $self;
 }
@@ -93,6 +97,7 @@ entity Travel : cuid, managed {
 entity Booking : cuid, managed {
   BookingID     : Integer @Core.Computed;
   TravelID      : Integer;
+  CarrierID     : String(3) @mandatory;
   FlightDate    : Date @mandatory;
   FlightPrice   : Decimal(15,2) @mandatory;
   ConnectionID  : String(4) @mandatory;
@@ -100,6 +105,12 @@ entity Booking : cuid, managed {
 
   // Association back to Travel
   Travel : Association to Travel;
+
+  // Associations to Master Data
+  Carrier : Association to Airlines on Carrier.AirlineID = CarrierID;
+  Flight  : Association to Flights on Flight.CarrierID = CarrierID
+                                and Flight.ConnectionID = ConnectionID
+                                and Flight.FlightDate = FlightDate;
 
   // Composition to BookingSupplement
   BookingSupplement : Composition of many BookingSupplement on BookingSupplement.Booking = $self;
@@ -114,4 +125,7 @@ entity BookingSupplement : cuid, managed {
 
   // Association back to Booking
   Booking : Association to Booking;
+
+  // Association to Master Data
+  Supplement : Association to Supplements on Supplement.SupplementID = SupplementID;
 }
