@@ -1,0 +1,11 @@
+TravelID;AgencyID;CustomerID;BeginDate;EndDate;BookingFee;TotalPrice;CurrencyCode;Description;Status
+1;00000001;00000001;2024-04-15;2024-04-22;50.00;1250.00;EUR;Business trip to London for client meetings;A
+2;00000001;00000002;2024-05-10;2024-05-17;75.00;2100.00;USD;Family vacation to New York City;P
+3;00000002;00000003;2024-06-01;2024-06-08;60.00;1800.00;EUR;Conference attendance in Paris;O
+4;00000003;00000004;2024-07-20;2024-08-05;100.00;3500.00;GBP;Extended holiday in Japan and Singapore;A
+5;00000002;00000005;2024-03-25;2024-04-02;45.00;950.00;EUR;Weekend getaway to Berlin;A
+6;00000004;00000006;2024-08-15;2024-08-30;120.00;4200.00;USD;Adventure tour in Australia;P
+7;00000001;00000007;2024-09-10;2024-09-15;35.00;1150.00;EUR;Cultural tour of Rome and Florence;O
+8;00000005;00000008;2024-10-05;2024-10-12;80.00;2800.00;USD;Safari expedition in South Africa;P
+9;00000003;00000009;2024-11-20;2024-11-25;40.00;875.00;EUR;City break in Amsterdam;O
+10;00000006;00000010;2024-12-15;2024-12-22;90.00;3200.00;USD;Winter holiday in the Alps;P

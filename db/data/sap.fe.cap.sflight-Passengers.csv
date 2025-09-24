@@ -1,0 +1,11 @@
+CustomerID;Title;FirstName;LastName;Street;PostalCode;City;CountryCode;PhoneNumber;EmailAddress;DateOfBirth
+00000001;Mr;John;Smith;123 Main St;10001;New York;USA;+1-555-0101;john.smith@email.com;1985-03-15
+00000002;Ms;Sarah;Johnson;456 Oak Ave;90210;Beverly Hills;USA;+1-555-0102;sarah.johnson@email.com;1990-07-22
+00000003;Dr;Michael;Brown;789 Pine Rd;M4A 1A1;Toronto;CAN;+1-416-555-0103;michael.brown@email.com;1978-11-08
+00000004;Mrs;Emma;Davis;321 Elm St;SW1A 1AA;London;GBR;+44-20-7555-0104;emma.davis@email.com;1982-05-30
+00000005;Mr;James;Wilson;654 Maple Dr;75001;Paris;FRA;+33-1-55-55-0105;james.wilson@email.com;1988-09-12
+00000006;Ms;Lisa;Garcia;987 Cedar Ln;10115;Berlin;DEU;+49-30-555-0106;lisa.garcia@email.com;1975-12-03
+00000007;Prof;David;Martinez;147 Birch St;100-0001;Tokyo;JPN;+81-3-5555-0107;david.martinez@email.com;1980-04-18
+00000008;Ms;Anna;Rodriguez;258 Spruce Ave;119435;Moscow;RUS;+7-495-555-0108;anna.rodriguez@email.com;1992-08-25
+00000009;Mr;Thomas;Lee;369 Willow Rd;2000;Sydney;AUS;+61-2-5555-0109;thomas.lee@email.com;1987-01-14
+00000010;Mrs;Sophie;Chen;741 Poplar St;518000;Shenzhen;CHN;+86-755-555-0110;sophie.chen@email.com;1983-10-07

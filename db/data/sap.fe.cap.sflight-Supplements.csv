@@ -1,0 +1,16 @@
+SupplementID;Type;Description;Price;CurrencyCode;Unit
+MEAL001;Meal;Premium In-Flight Meal;45.00;EUR;EACH
+MEAL002;Meal;Vegetarian Meal Option;40.00;EUR;EACH
+MEAL003;Meal;Business Class Dining;85.00;EUR;EACH
+SEAT001;Seating;Extra Legroom Seat;75.00;EUR;EACH
+SEAT002;Seating;Window Seat Selection;25.00;EUR;EACH
+SEAT003;Seating;Business Class Upgrade;350.00;EUR;EACH
+BAG001;Baggage;Extra Checked Bag;50.00;EUR;EACH
+BAG002;Baggage;Overweight Baggage Fee;100.00;EUR;EACH
+BAG003;Baggage;Priority Baggage Handling;30.00;EUR;EACH
+INS001;Insurance;Travel Insurance Basic;35.00;EUR;EACH
+INS002;Insurance;Travel Insurance Premium;65.00;EUR;EACH
+INS003;Insurance;Flight Cancellation Cover;45.00;EUR;EACH
+SVC001;Service;Airport Lounge Access;55.00;EUR;EACH
+SVC002;Service;Fast Track Security;20.00;EUR;EACH
+SVC003;Service;Airport Transfer;80.00;EUR;EACH

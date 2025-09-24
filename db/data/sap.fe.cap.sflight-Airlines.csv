@@ -1,0 +1,11 @@
+AirlineID;Name;CurrencyCode;Url
+LH;Lufthansa;EUR;https://www.lufthansa.com
+AA;American Airlines;USD;https://www.aa.com
+BA;British Airways;GBP;https://www.britishairways.com
+AF;Air France;EUR;https://www.airfrance.com
+UA;United Airlines;USD;https://www.united.com
+DL;Delta Air Lines;USD;https://www.delta.com
+JL;Japan Airlines;JPY;https://www.jal.com
+SQ;Singapore Airlines;SGD;https://www.singaporeair.com
+EK;Emirates;AED;https://www.emirates.com
+QR;Qatar Airways;QAR;https://www.qatarairways.com

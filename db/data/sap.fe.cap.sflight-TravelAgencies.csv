@@ -1,0 +1,9 @@
+AgencyID;Name;Street;PostalCode;City;CountryCode;PhoneNumber;EmailAddress;WebAddress
+00000001;Global Travel Solutions;100 Business Blvd;10001;New York;USA;+1-555-1001;info@globaltravel.com;https://www.globaltravel.com
+00000002;European Tours & More;25 High Street;SW1A 1AA;London;GBR;+44-20-7555-1002;bookings@europeantours.com;https://www.europeantours.com
+00000003;Adventure Travel Co;75 Champs-Élysées;75008;Paris;FRA;+33-1-55-55-1003;contact@adventuretravel.fr;https://www.adventuretravel.fr
+00000004;Asia Pacific Journeys;12 Shibuya Crossing;150-0002;Tokyo;JPN;+81-3-5555-1004;info@apjourneys.jp;https://www.apjourneys.jp
+00000005;Sunshine Holidays;88 Collins Street;3000;Melbourne;AUS;+61-3-5555-1005;hello@sunshineholidays.au;https://www.sunshineholidays.au
+00000006;Nordic Adventures;45 Königsallee;40212;Düsseldorf;DEU;+49-211-555-1006;service@nordicadv.de;https://www.nordicadv.de
+00000007;Mediterranean Escapes;Via del Corso 100;00186;Rome;ITA;+39-06-555-1007;ciao@mediterresc.it;https://www.mediterresc.it
+00000008;Safari & More;15 Long Street;8001;Cape Town;ZAF;+27-21-555-1008;info@safariandmore.za;https://www.safariandmore.za

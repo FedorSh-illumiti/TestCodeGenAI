@@ -1,0 +1,11 @@
+AirportID;Name;City;CountryCode;Region;TimeZone;Latitude;Longitude
+JFK;John F. Kennedy International Airport;New York;USA;NY;EST;40.641766;-73.780968
+LHR;Heathrow Airport;London;GBR;ENG;GMT;51.469603;-0.461655
+CDG;Charles de Gaulle Airport;Paris;FRA;IDF;CET;49.009691;2.547925
+FRA;Frankfurt Airport;Frankfurt;DEU;HE;CET;50.033333;8.570556
+NRT;Narita International Airport;Tokyo;JPN;KT;JST;35.764722;140.386389
+SYD;Kingsford Smith Airport;Sydney;AUS;NSW;AEDT;-33.946609;151.177002
+DXB;Dubai International Airport;Dubai;ARE;DU;GST;25.252778;55.364444
+SIN;Singapore Changi Airport;Singapore;SGP;SG;SGT;1.350189;103.994433
+LAX;Los Angeles International Airport;Los Angeles;USA;CA;PST;33.942536;-118.408075
+ORD;Chicago O'Hare International Airport;Chicago;USA;IL;CST;41.978603;-87.904842
